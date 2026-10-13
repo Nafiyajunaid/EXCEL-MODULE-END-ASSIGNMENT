@@ -31,7 +31,8 @@ Data Transformation:
 
 4) Check for inconsistencies in the 'Heart Issues' and 'smoker' columns and propose
 corrective actions if necessary.
-5) Create a new column named “Weight Status” that categorizes BMI into different
+In power query > transform > format> capitalize each word > clean
+6) Create a new column named “Weight Status” that categorizes BMI into different
 categories as below:
 
 BMI Weight Status
@@ -39,6 +40,14 @@ Below 18.5 Underweight
 18.5 – 24.9 Normal Weight
 25.0 – 29.9 Overweight
 30.0 and Above Obesity
+
+In power query add conditional column and add condition one by one.
+If BMI < 18.5 then "Underweight"
+Else If BMI <= 24.9 then "Normal Weight"
+Else If BMI <= 29.9 then "Overweight"
+Else "Obesity"
+
+
 
 5) Create a new column named “Diabetes Status” and fill it as per the information given
 below:
@@ -48,10 +57,18 @@ Below 5.7 Normal
 5.7 – 6.4 Prediabetes
 6.5 and Above Diabetes
 
+In power query add conditional column and add condition one by one.
+If HbA1C<5.7 then "Normal" 
+Else If HbA1C <= 6.4  then "Prediabetes"
+Else "Diabetes"
+
 6) Merge ‘year’, ‘month’ and ‘date’ columns in the “Hospitalization Details” Table into one
 column named ‘Date of Birth’ and format it in ‘DD-MMM-YYYY’ custom format.
-7) Calculate the ‘Age’ of each customer based on their ‘Date of Birth’ and the date of
-collection of the dataset, which is 8
-th
-June 2023.
-8) Format ‘charges’ column as currency ($).
+In power query selext three columns and Transform > merge columns> by space
+rename new column by Date of Birth.
+Change format to date type.
+
+8) Calculate the ‘Age’ of each customer based on their ‘Date of Birth’ and the date of collection of the dataset, which is 8th June 2023.
+ Insert new column named Age in Excel. In first cell give syntax: =datedif(
+   
+10) Format ‘charges’ column as currency ($).
