@@ -10,14 +10,15 @@ SYNTAX:=IF([@month]="?","sep",[@month])
  or replace all ? values with "Sep" using Find & Replace 
 For the Year column: calcuted Average of Years using Average function(1982.8) SYNTAX:=AVERAGE(B:B)
 Then round it to nearest integer.(1983)  SYNTAX:=ROUND(P4,0)
-Then created new column named "Year New" and used "if" function for replacing "?" to "1983" or replace using Find & Replace
+Then created new column named "Year New" and used "if" function for replacing "?" to "1983" syntax:=IF([@year]="?","1983",[@year])
+or replace using Find & Replace
 
-3) Determine the most frequently occurring values in the ‘smoker’, 'Hospital tier' and 'City tier' columns, and fill in the missing values accordingly.
-For Smoker column: Found Mode (N0) using Syntax:
+4) Determine the most frequently occurring values in the ‘smoker’, 'Hospital tier' and 'City tier' columns, and fill in the missing values accordingly.
+For Smoker column: Found Mode (N0) using Syntax:=IF(COUNTIF(H:H,"yes")>COUNTIF(H:H,"no"),"yes","no")
 Then replaced "?" using Find & Replace
 For 'Hospital tier' and 'City tier' columns: In power query used function groupby and found mode . Then replaced using "replace values". 
 
-4) If any 'State ID' values are missing, consider filling them with 'Unknown' or using another appropriate strategy.
+5) If any 'State ID' values are missing, consider filling them with 'Unknown' or using another appropriate strategy.
 Replaced "?" with "unknown" using Replace values in power query.
 
 Data Transformation: 
@@ -69,6 +70,6 @@ rename new column by Date of Birth.
 Change format to date type.
 
 8) Calculate the ‘Age’ of each customer based on their ‘Date of Birth’ and the date of collection of the dataset, which is 8th June 2023.
- Insert new column named Age in Excel. In first cell give syntax: =datedif(
+ Insert new column named Age in Excel. In first cell give syntax: =DATEDIF([@[Date of Birth]],"2023/06/08","Y")
    
 10) Format ‘charges’ column as currency ($).
