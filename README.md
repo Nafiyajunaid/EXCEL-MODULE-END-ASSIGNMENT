@@ -73,3 +73,45 @@ Change format to date type.
  Insert new column named Age in Excel. In first cell give syntax: =DATEDIF([@[Date of Birth]],"2023/06/08","Y")
    
 10) Format ‘charges’ column as currency ($).
+    format cells to currency.
+
+Data Exploration, Analysis & Visualization: (12 marks)
+➢Create a new sheet named “Healthcare", combine all three tables into one, using Customer ID as the common column, utilizing VLOOKUP .
+Retain the following necessary columns: Customer ID, First Name, BMI, HBA1C, Heart Issues, Any Transplants, Cancer history, NumberOfMajorSurgeries, smoker, Weight Status, Diabetes Status, Date of Birth, charges, Hospital tier, City tier, State ID, Age.
+    Created a new worksheet named Healthcare.Copied the Customer ID column into the new worksheet.Used the VLOOKUP function to retain the required columns from the Medical Examinations and Hospitalization Details tables using Customer ID as the common field.Retained the required fields and combined them into one table.
+syntax:
+
+Create pivot tables if required to do the following analysis, then visualize through charts:
+Analysis using Pie/Donut Chart:
+➢ What is the distribution of cancer history among smokers and non-smokers?
+    Select Insert > PivotTable.Add smoker to Rows.Add Cancer history to Columns.Add Customer ID to Values and set the calculation to Count.Select the PivotTable and choose Insert > Pie Chart or Doughnut Chart.Add a chart title, data labels, and legend.
+
+➢ How does the total number of major surgeries and average HbA1C differ between
+patients with and without a history of transplants?
+    Insert a PivotTable using the Healthcare dataset.Add Any Transplants to Rows.Add NumberOfMajorSurgeries to Values and select Sum.Add HBA1C to Values and select Average.Insert a chart.
+    
+Analysis using Column/Bar Chart:
+
+➢ How do healthcare charges vary based on different weight statuses and diabetes
+statuses?
+    Insert a PivotTable.Add Weight Status to Rows.Add Diabetes Status to Columns.Add charges to Values.Change the Value Field Settings to Average.Insert a Clustered Column Chart.
+
+➢ Can you compare the average charges for each hospital tier within different states?
+    Insert a PivotTable.Add State ID to Rows.Add Hospital tier to Columns.Add charges to Values.Set the calculation to Average.Insert a Clustered Bar Chart.
+    
+Analysis using Line/Scatter Plot:
+
+➢ Is there any correlation between age and both BMI and HbA1C in the dataset?
+
+   Select the Age and BMI columns.Choose Insert → Scatter Chart.Set Age as the horizontal axis and BMI as the vertical axis. Repeat using Age and HBA1C.Add a linear trendline to each scatter plot.
+    
+➢ Explore the relationship between age and healthcare charges.
+
+   Select the Age and charges columns. Choose Insert → Scatter Chart.Set Age as the horizontal axis and charges as the vertical axis.Add a linear trendline.
+
+Dashboard Creation:
+➢ Build an interactive dashboard that consolidates all key insights using the above visualizations. Ensure visual clarity and ease of interpretation for all chart types.
+   Created a new worksheet named Dashboard.Added the charts created during the analysis.Arranged the charts .Added the title Healthcare Analysis Dashboard.
+
+➢ Add slicers for the fields “Weight Status” and “Diabetes Status” to enable filtering across all visualizations, supporting comparison of health outcomes and charges based on body weight and diabetes condition.  
+   Selected a PivotTable and navigated to PivotTable Analyze → Insert Slicer. Selected the Weight Status and Diabetes Status fields.Inserted the slicers and moved them to the Dashboard worksheet.    Selected the Weight Status slicer.Right click Slicer> Report Connections .Selected all PivotTables .Repeated the process for the Diabetes Status slicer.
