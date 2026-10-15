@@ -4,7 +4,7 @@ Data Cleaning:
 NO OF "?" IN MEDICAL EXAMINATIONS	: 2 SYNTAX: =COUNTIF(MEDICAL_EXAMINATIONS,"?")		
 NO OF "?" IN HOSPITALISATION DETAILS : 15 SYNTAX: =COUNTIF(HOSPITALISATION_DETAILS,"?")		
 
-2) Fill in the missing values of ‘month’ with Sep and ‘year’ with its average rounded to thenearest integer.
+2) Fill in the missing values of ‘month’ with Sep and ‘year’ with its average rounded to the nearest integer.
 For the Month column: created new column named month new and used if function for replacing "?" to "sep".
 SYNTAX:=IF([@month]="?","sep",[@month])
  or replace all ? values with "Sep" using Find & Replace 
@@ -33,6 +33,7 @@ Data Transformation:
 4) Check for inconsistencies in the 'Heart Issues' and 'smoker' columns and propose
 corrective actions if necessary.
 In power query > transform > format> capitalize each word > clean
+
 6) Create a new column named “Weight Status” that categorizes BMI into different
 categories as below:
 
@@ -43,10 +44,7 @@ Below 18.5 Underweight
 30.0 and Above Obesity
 
 In power query add conditional column and add condition one by one.
-If BMI < 18.5 then "Underweight"
-Else If BMI <= 24.9 then "Normal Weight"
-Else If BMI <= 29.9 then "Overweight"
-Else "Obesity"
+=If BMI < 18.5 then "Underweight"  Else If BMI <= 24.9 then "Normal Weight"  Else If BMI <= 29.9 then "Overweight"  Else "Obesity"
 
 
 
@@ -59,15 +57,11 @@ Below 5.7 Normal
 6.5 and Above Diabetes
 
 In power query add conditional column and add condition one by one.
-If HbA1C<5.7 then "Normal" 
-Else If HbA1C <= 6.4  then "Prediabetes"
-Else "Diabetes"
+If HbA1C<5.7 then "Normal" Else If HbA1C <= 6.4  then "Prediabetes" Else "Diabetes"
 
 6) Merge ‘year’, ‘month’ and ‘date’ columns in the “Hospitalization Details” Table into one
 column named ‘Date of Birth’ and format it in ‘DD-MMM-YYYY’ custom format.
-In power query selext three columns and Transform > merge columns> by space
-rename new column by Date of Birth.
-Change format to date type.
+In power query selext three columns and Transform > merge columns> by space. rename new column by Date of Birth. Change format to date type.
 
 8) Calculate the ‘Age’ of each customer based on their ‘Date of Birth’ and the date of collection of the dataset, which is 8th June 2023.
  Insert new column named Age in Excel. In first cell give syntax: =DATEDIF([@[Date of Birth]],"2023/06/08","Y")
@@ -75,11 +69,12 @@ Change format to date type.
 10) Format ‘charges’ column as currency ($).
     format cells to currency.
 
-Data Exploration, Analysis & Visualization: (12 marks)
+Data Exploration, Analysis & Visualization: 
+
 ➢Create a new sheet named “Healthcare", combine all three tables into one, using Customer ID as the common column, utilizing VLOOKUP .
 Retain the following necessary columns: Customer ID, First Name, BMI, HBA1C, Heart Issues, Any Transplants, Cancer history, NumberOfMajorSurgeries, smoker, Weight Status, Diabetes Status, Date of Birth, charges, Hospital tier, City tier, State ID, Age.
     Created a new worksheet named Healthcare.Copied the Customer ID column into the new worksheet.Used the VLOOKUP function to retain the required columns from the Medical Examinations and Hospitalization Details tables using Customer ID as the common field.Retained the required fields and combined them into one table.
-syntax:
+syntax:=VLOOKUP(A2,hosptl_dtls_cleaned,2,FALSE)
 
 Create pivot tables if required to do the following analysis, then visualize through charts:
 Analysis using Pie/Donut Chart:
@@ -103,15 +98,19 @@ Analysis using Line/Scatter Plot:
 
 ➢ Is there any correlation between age and both BMI and HbA1C in the dataset?
 
-   Select the Age and BMI columns.Choose Insert → Scatter Chart.Set Age as the horizontal axis and BMI as the vertical axis. Repeat using Age and HBA1C.Add a linear trendline to each scatter plot.
+   Select the Age and BMI columns.Choose Insert >  Scatter Chart.Set Age as the horizontal axis and BMI as the vertical axis. Repeat using Age and HBA1C.Add a linear trendline to each scatter plot.
+   
+  1.The trendline is almost straight but there is light upward slope in the trendline in age vs bmi scatterplot indicates that BMI tends to increase slightly with age,modestly.
+  2.The linear trendline shows a slight upward slope n age vs HbA1C scatterplot, meaning HbA1C tends to increase with age,modestly.
+   
     
 ➢ Explore the relationship between age and healthcare charges.
-
-   Select the Age and charges columns. Choose Insert → Scatter Chart.Set Age as the horizontal axis and charges as the vertical axis.Add a linear trendline.
-
+Go to Insert > PivotTable.Age into the Rows.Charges into the Valueshange the value field setting to Average of Charges.Insert → Charts → Line Chart.Add Trendline.
+   The overall pattern in age vs charges scatterplot shows a slight upward trend — as age increases, healthcare charges tend to rise,modestly.
+  
 Dashboard Creation:
 ➢ Build an interactive dashboard that consolidates all key insights using the above visualizations. Ensure visual clarity and ease of interpretation for all chart types.
    Created a new worksheet named Dashboard.Added the charts created during the analysis.Arranged the charts .Added the title Healthcare Analysis Dashboard.
 
 ➢ Add slicers for the fields “Weight Status” and “Diabetes Status” to enable filtering across all visualizations, supporting comparison of health outcomes and charges based on body weight and diabetes condition.  
-   Selected a PivotTable and navigated to PivotTable Analyze → Insert Slicer. Selected the Weight Status and Diabetes Status fields.Inserted the slicers and moved them to the Dashboard worksheet.    Selected the Weight Status slicer.Right click Slicer> Report Connections .Selected all PivotTables .Repeated the process for the Diabetes Status slicer.
+   Selected a PivotTable and PivotTable Analyze >  Insert Slicer. Selected the Weight Status and Diabetes Status fields.Inserted the slicers and moved them to the Dashboard worksheet.    Selected the Weight Status slicer.Right click Slicer> Report Connections .Selected all PivotTables .Repeated the process for the Diabetes Status slicer.
