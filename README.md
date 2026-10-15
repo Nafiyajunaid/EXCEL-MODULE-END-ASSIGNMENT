@@ -73,7 +73,7 @@ Data Exploration, Analysis & Visualization:
 
 ➢Create a new sheet named “Healthcare", combine all three tables into one, using Customer ID as the common column, utilizing VLOOKUP .
 Retain the following necessary columns: Customer ID, First Name, BMI, HBA1C, Heart Issues, Any Transplants, Cancer history, NumberOfMajorSurgeries, smoker, Weight Status, Diabetes Status, Date of Birth, charges, Hospital tier, City tier, State ID, Age.
-    Created a new worksheet named Healthcare.Copied the Customer ID column into the new worksheet.Used the VLOOKUP function to retain the required columns from the Medical Examinations and Hospitalization Details tables using Customer ID as the common field.Retained the required fields and combined them into one table.
+    Create a new worksheet named Healthcare.Copy the Customer ID column into the new worksheet.Use the VLOOKUP function to retain the required columns from the Medical Examinations and Hospitalization Details tables using Customer ID as the common field.Retain the required fields and combine them into one table.
 syntax:=VLOOKUP(A2,hosptl_dtls_cleaned,2,FALSE)
 
 Create pivot tables if required to do the following analysis, then visualize through charts:
@@ -105,12 +105,12 @@ Analysis using Line/Scatter Plot:
    
     
 ➢ Explore the relationship between age and healthcare charges.
-Go to Insert > PivotTable.Age into the Rows.Charges into the Valueshange the value field setting to Average of Charges.Insert → Charts → Line Chart.Add Trendline.
-   The overall pattern in age vs charges scatterplot shows a slight upward trend — as age increases, healthcare charges tend to rise,modestly.
+Go to Insert > PivotTable.Age into the Rows.Charges into the Valueshange the value field setting to Average of Charges.Insert > Charts >Line Chart.Add Trendline.
+   The overall pattern in age vs charges scatterplot shows a slight upward trend ; as age increases, healthcare charges tend to rise,modestly.
   
 Dashboard Creation:
 ➢ Build an interactive dashboard that consolidates all key insights using the above visualizations. Ensure visual clarity and ease of interpretation for all chart types.
    Created a new worksheet named Dashboard.Added the charts created during the analysis.Arranged the charts .Added the title Healthcare Analysis Dashboard.
 
 ➢ Add slicers for the fields “Weight Status” and “Diabetes Status” to enable filtering across all visualizations, supporting comparison of health outcomes and charges based on body weight and diabetes condition.  
-   Selected a PivotTable and PivotTable Analyze >  Insert Slicer. Selected the Weight Status and Diabetes Status fields.Inserted the slicers and moved them to the Dashboard worksheet.    Selected the Weight Status slicer.Right click Slicer> Report Connections .Selected all PivotTables .Repeated the process for the Diabetes Status slicer.
+   Select a PivotTable and PivotTable Analyze >  Insert Slicer. Select the Weight Status and Diabetes Status fields.Insert the slicers and move them to the Dashboard worksheet.    Selecte the Weight Status slicer.Right click Slicer> Report Connections .Select all PivotTables .Repeat the process for the Diabetes Status slicer.
